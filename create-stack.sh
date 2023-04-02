@@ -1,7 +1,8 @@
-
+#!/bin/bash
 
 if [ -z "$1" ]; then
-      MODE=FARGATE
+    echo "Wrong parameter 1 MODE null"
+    exit 1 
 elif [ "$1" == "EC2" ]; then
       MODE=$1
 elif [ "$1" == "FARGATE" ]; then
@@ -15,6 +16,8 @@ fi
 
 cd ../poker-hand-analyzer-microservice-springboot-aws-ecs
 ./create-stack.sh $MODE
+cd ../common-aws-vpc
+./create-stack.sh
 cd ../poker-hand-analyzer-microservice-springboot-aws-ecs-iac
 ./create-stack.sh $MODE
 cd ../poker-hand-analyzer-microservice-springboot-aws-ecs-cicd
