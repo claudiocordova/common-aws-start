@@ -33,10 +33,10 @@ elif [ "$1" == "ECS_EC2" ]; then
     ./create-stack.sh $MODE
     cd ../common-aws-vpc
     ./create-stack.sh $MODE
-    cd ../poker-hand-analyzer-microservice-springboot-aws-ecs-iac
+    cd ../common-aws-ecs
     ./create-stack.sh $MODE
-    cd ../poker-hand-analyzer-microservice-springboot-aws-ecs-cicd
-    ./create-stack.sh
+    cd ../common-aws-cicd
+    ./create-stack.sh $MODE
     cd ../common-aws-start
 
 
@@ -47,10 +47,10 @@ elif [ "$1" == "ECS_FARGATE" ]; then
     ./create-stack.sh $MODE
     cd ../common-aws-vpc
     ./create-stack.sh $MODE
-    cd ../poker-hand-analyzer-microservice-springboot-aws-ecs-iac
+    cd ../common-aws-ecs
     ./create-stack.sh $MODE
-    cd ../poker-hand-analyzer-microservice-springboot-aws-ecs-cicd
-    ./create-stack.sh
+    cd ../common-aws-cicd
+    ./create-stack.sh $MODE
     cd ../common-aws-start
 
 elif [ "$1" == "EC2" ]; then
@@ -60,10 +60,8 @@ elif [ "$1" == "EC2" ]; then
     ./create-stack.sh $MODE
     cd ../common-aws-vpc
     ./create-stack.sh $MODE
-    cd ../poker-hand-analyzer-microservice-springboot-aws-ecs-iac
+    cd ../common-aws-ec2
     ./create-stack.sh $MODE
-    cd ../poker-hand-analyzer-microservice-springboot-aws-ecs-cicd
-    ./create-stack.sh
     cd ../common-aws-start
 
 
@@ -74,11 +72,9 @@ elif [ "$1" == "EC2_DOCKER" ]; then
     ./create-stack.sh $MODE
     cd ../common-aws-vpc
     ./create-stack.sh $MODE
-    cd ../poker-hand-analyzer-microservice-springboot-aws-ecs-iac
+    cd ../common-aws-ec2
     ./create-stack.sh $MODE
-    cd ../poker-hand-analyzer-microservice-springboot-aws-ecs-cicd
-    ./create-stack.sh
-    cd ../common-aws-start      
+    cd ../common-aws-start    
 
 else
     echo "Wrong parameter 1 MODE: "$1
